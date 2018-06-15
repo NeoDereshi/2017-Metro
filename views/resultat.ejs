@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <title>Votre chemin</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  </head>
+  <body>
+    <div class="jumbotron text-center col-sm-12 container-fluid">
+      <h1>Resultats de votre requête</h1>
+    </div>
+
+    <div class="container-fluid text-justify bg-grey col-xs-offset-2 col-sm-offset-1">
+      <p>Heure de départ : <%= v_args.heure_dep %>h<%= v_args.minute_dep %>
+      <br>Heure d'arrivée : <%= v_args.heure_arr %>h<%= v_args.minute_arr %>
+      <br>Temps de trajet : <%= v_args.temps_trajet %> minutes </p>
+    </div>
+
+    <div class="list-group container-fluid col-xs-offset-2 col-sm-offset-1 col-xs-8 col-sm-6">
+        <%
+        var firstNamepos = 0;
+        var id = 0;
+
+        %>
+        <a href="##" id="<%= id %>" class="list-group-item"><img src="/ico_l<%= v_args.lignes[0] %>.png" alt="icone de la ligne <%= v_args.lignes[0] %>"> <%= v_args.names[0] %> <span class="glyphicon glyphicon-arrow-right"></span>
+        <%
+        for(var i = 0; i < v_args.result.length; i++){
+          if ((i != 0 && v_args.lignes[i] != v_args.lignes[i-1]) || i == v_args.result.length - 1){
+            lastNamepos = i-1;
+
+            if (i == v_args.result.length - 1){
+              %> <%= v_args.names[i] %> <%
+            } else {
+              %> <%= v_args.names[i-1] %> <%
+            }
+
+            %>
+                <span class="glyphicon glyphicon-menu-down"></span></a>
+              <div class="container">
+                <ul id="a<%= id %>" class="list-group col-xs-12 col-sm-6">
+            <%
+            id++;
+
+            var limit = i;
+            if (i == v_args.result.length - 1){
+              limit++;
+            }
+
+            for (var j = firstNamepos; j < limit; j++){
+              %>
+                <li class="list-group-item"><%= v_args.names[j] %></li>
+              <%
+            }
+            %>
+                </ul>
+              </div>
+            <%
+            firstNamepos = i;
+
+            if (i != v_args.result.length - 1){
+              %>
+                <a href="##" id="<%= id %>" class="list-group-item"><img src="/ico_l<%= v_args.lignes[i] %>.png" alt="icone de la ligne <%= v_args.lignes[i] %>"> <%= v_args.names[i] %> <span class="glyphicon glyphicon-arrow-right"></span>
+              <%
+            }
+          }
+        } %>
+    </div>
+
+    <div class="col-xs-offset-2 col-sm-offset-1 col-xs-10 col-sm-11">
+      <a href="/" class="btn btn-info">Un autre trajet ?</a>
+    </div>
+
+    <script>
+      $("ul").hide();
+
+      $(document).on('click', 'a[href="##"]', function(event){
+        $('#a' + $(event.target).attr("id")).show();
+        $(event.target).attr("href", "###");
+      });
+
+      $(document).on('click', 'a[href="###"]', function(event){
+        $('#a' + $(event.target).attr("id")).hide();
+        $(event.target).attr("href", "##");
+      });
+
+    </script>
+
+  </body>
+</html>

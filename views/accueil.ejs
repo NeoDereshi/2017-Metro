@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <title>EA RATP</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  </head>
+  <body>
+
+    <div class="jumbotron text-center col-sm-12 container-fluid">
+      <h1>Early Alpha RATP</h1>
+
+      <p>Bienvenue sur l'early alpha de la RATP, si vous visitez ce site en 2017, ceci est un authentique bond dans le passé.</p>
+
+    </div>
+
+    <div class="container">
+      <div class="col-xs-offset-4 col-sm-offset-3 col-sm-10">
+        <p class="text-danger"><%= v_error %></p>
+      </div>
+
+      <form class="form-horizontal" action="http://localhost:8080" method="post">
+        <div class="form-group">
+          <label class="control-label col-xs-4 col-sm-3" for="s1">Station de départ</label>
+          <div class="col-xs-8 col-sm-4">
+            <input autocomplete="off" class="form-control" type="text" id="s1" name="s1" value="<%= v_s1 %>">
+          </div>
+          <div class="col-xs-offset-4 col-sm-offset-3 col-xs-8 xol-sm-9" id="results1">
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-xs-4 col-sm-3" for="s2">Station d'arrivée</label>
+          <div class="col-xs-8 col-sm-4">
+             <input autocomplete="off" class="form-control" type="text" id="s2" name="s2" value="<%= v_s2 %>">
+          </div>
+          <div class="col-xs-offset-4 col-sm-offset-3 col-xs-8 xol-sm-9" id="results2">
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-xs-4 col-sm-3" for="heure">Heure de départ</label>
+          <div class="col-xs-2 col-sm-1">
+            <select class="form-control" id="heure" name="heure">
+              <%
+              for(var i = 0; i < 24; i++){ %>
+                <option value="<%= i %>"><%= i %></option>
+              <% } %>
+            </select>
+          </div>
+
+          <label class="text-center col-xs-1" for="minute">:</label>
+          <div class="col-xs-2 col-sm-1">
+            <select class="form-control" id="minute" name="minute">
+              <%
+              for(var i = 0; i < 59; i += 5){ %>
+                <option value="<%= i %>"><%= i %></option>
+              <% } %>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-offset-4 col-sm-offset-3 col-sm-10">
+            <button type="submit" class="btn btn-default" name="button">Trouver le chemin !</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+    <script>
+
+      $("#s1").on('input', function() {
+        var parameters = { search: $('#s1').val(), input: 's1' };
+        $.get('/request', parameters, function(data){
+          $("#results1").html(data);
+        });
+      });
+
+      $("#s2").on('input', function() {
+        var parameters = { search: $('#s2').val(), input: 's2' };
+        $.get('/request', parameters, function(data){
+          $("#results2").html(data);
+        });
+      });
+
+      $(document).on('click', '#autocomps1',function(event){
+        $("#s1").val($(event.target).text());
+        $('#autocomplists1').hide();
+      });
+
+      $(document).on('click', '#autocomps2',function(event){
+        $("#s2").val($(event.target).text());
+        $('#autocomplists2').hide();
+      });
+
+    </script>
+  </body>
+</html>

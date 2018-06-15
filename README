@@ -1,0 +1,41 @@
+Utilisation :
+  -Commande dans le terminal : node serveur.js
+  -Ensuite se rendre sur localhost:8080
+  -Enjoy!
+
+Modules installés :
+  fs
+  express
+  body-parser
+  ejs
+  bootstrap
+
+Fonctionnalités minimales attendues :
+  Tout est implémenté :
+    -saisie d'une station de départ et d'une station d'arrivée
+    -calcul d'un parcours avec l'algorithme de dijsktra
+    -affichage du parcourues :
+      -Il me paraît assez intuitif pour comprendre les lignes concernées ainsi que les changements à faire
+      -L'affichage est segment par segment :
+        -d'abord synthétique, ligne de métro par ligne de métro avec la station de départ et d'arrivée sur cette ligne-ci
+        -on peut alors cliquer pour afficher le détail des stations parcourues (toujours par ligne de métro)
+    -gérer les erreurs :
+      Reste fonctionnel, si le nom d'une station est fausse, affiche un message d'erreur
+
+Fonctionnalités optionnelles implémentées :
+  -proposer une estimation du temps de parcours
+    -proposition d'une heure de départ dans le formulaire
+    -Affichage de l'heure de départ, de l'heure d'arrivée ainsi que du temps de parcours dans lap age de résultat
+    -Calculé avec les temps que vous avez mis dans le sujet
+  -suggestion des noms de stations
+    -à l'aide de tous les outils vu en cours (js, jquery, nodejs, AJAX, bootstrap)
+    -affiche 5 noms maximum en dessous de l'input dans lequel on écrit
+      -Les noms qui s'affichent sont d'abord ceux commençant par ce que l'utilisateur à commencé à écrire
+      -Ensuite, s'il y a moins de 5 résultats, la liste est complétée par les noms de stations contenant ce que l'utilisateur à écrit
+      -Cela facilite la recherche pour l'utilisateur (notamment avec les noms de stations comprenant plusieurs mots)
+      -L'utilisateur peut rentrer le nom des stations en minuscule sans problème, mon seul regret étant de ne pas gérer lorsque les accents ne sont pas mis sur les lettres)
+
+Commentaires :
+  -Pour la fonctionnalité optionnelle qui est de proposer des corrections de nom après soumission
+    je ne considère pas cela comme très important à faire à cause de l'auto-complétion que j'ai implémenter
+    Cependant, je reconnais que cela n'empêchera pas un utilisateur de pouvoir entrer un nom de station erroné
