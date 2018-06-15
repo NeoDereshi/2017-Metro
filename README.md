@@ -53,6 +53,8 @@ Tout est implémenté :
 
 Pour la fonctionnalité optionnelle qui est de proposer des corrections de nom après soumission, je ne considère pas cela comme très important à faire grâce à l'auto-complétion que j'ai implémenté. Cependant, je reconnais que cela n'empêchera pas un utilisateur de pouvoir entrer un nom de station erroné
 
+## Images
+
 ![](Screens/Metro1-accueil.png?raw=true)
 
 ![](Screens/Metro2-Autocompletion.png?raw=true)
