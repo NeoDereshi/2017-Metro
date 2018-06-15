@@ -61,9 +61,9 @@ Pour la fonctionnalité optionnelle qui est de proposer des corrections de nom a
 
 ![](Screens/Metro4-Autocompletion.png?raw=true)
 
-![](Screens/Metro5-avant la recherche.png?raw=true)
+![](Screens/Metro5-avant_la_recherche.png?raw=true)
 
-![](Screens/Metro6-Resultats recherche.png?raw=true)
+![](Screens/Metro6-Resultats_recherche.png?raw=true)
 
 ![](Screens/Metro7-resultats1.png?raw=true)
 
