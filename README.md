@@ -25,7 +25,7 @@ Tout est implémenté :
 
     * L'affichage est segment par segment :
         * D'abord synthétique, ligne de métro par ligne de métro avec la station de départ et la station d'arrivée sur cette ligne-ci
-        
+
         * On peut alors cliquer pour afficher le détail des stations parcourues (toujours par ligne de métro)
 
     * Gérer les erreurs : Reste fonctionnel, si le nom d'une station est fausse, affiche un message d'erreur
@@ -52,3 +52,23 @@ Tout est implémenté :
 ## Commentaires
 
 Pour la fonctionnalité optionnelle qui est de proposer des corrections de nom après soumission, je ne considère pas cela comme très important à faire grâce à l'auto-complétion que j'ai implémenté. Cependant, je reconnais que cela n'empêchera pas un utilisateur de pouvoir entrer un nom de station erroné
+
+![](Screens/Metro1-accueil.png?raw=true)
+
+![](Screens/Metro2-Autocompletion.png?raw=true)
+
+![](Screens/Metro3-Autocompletion.png?raw=true)
+
+![](Screens/Metro4-Autocompletion.png?raw=true)
+
+![](Screens/Metro5-avant la recherche.png?raw=true)
+
+![](Screens/Metro6-Resultats recherche.png?raw=true)
+
+![](Screens/Metro7-resultats1.png?raw=true)
+
+![](Screens/Metro8-Resultats2.png?raw=true)
+
+![](Screens/Metro9-Resultats3.png?raw=true)
+
+![](Screens/Metro10-erreur.png?raw=true)
