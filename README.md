@@ -1,5 +1,7 @@
 # 2017-Metro
 
+Projet réalisé seul dans le cadre du cours de programmation web en 3ème année de licence informatique à Paris 7 Diderot.
+
 ## Utilisation
 
 1. Placez-vous à la racine
